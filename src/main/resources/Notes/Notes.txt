@@ -1,0 +1,7 @@
+When to use the spring Data Rest
+==================================
+Most of the cases this is the redundant if we have any specific requirement then only we have to be used this one .
+here, the ENTITY level rest controllers only it is giving CURD operations. 
+in our requirement if you need a entity level operations only then we can go for this.
+
+Image added, check once under the resources.

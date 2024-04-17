@@ -1,0 +1,31 @@
+
+spring.mvc.pathmatch.matching-strategy=ant-path-matcher?
+
+The property spring.mvc.pathmatch.matching-strategy is used to configure the strategy used for matching request paths in Spring MVC applications. The default matching strategy is ant-path-matcher, which uses Ant-style path patterns for matching request paths.
+
+Here's how you can configure this property in your Spring Boot application's application.properties or application.yml
+
+@RestController
+public class ExampleController {
+
+    @GetMapping("/api/users/{userId}")
+    public ResponseEntity<String> getUser(@PathVariable String userId) {
+        return ResponseEntity.ok("User ID: " + userId);
+    }
+
+    @GetMapping("/api/users/*/orders")
+    public ResponseEntity<String> getUserOrders() {
+        return ResponseEntity.ok("User orders");
+    }
+}
+In this controller:
+
+The getUser() method handles requests to /api/users/{userId} where {userId} is a dynamic path variable.
+The getUserOrders() method handles requests to /api/users/*/orders, where the * represents a wildcard and matches any value between /api/users/ and /orders.
+With the ant-path-matcher strategy configured (which is the default in Spring Boot), both of these endpoints will work as expected using Ant-style path patterns.
+
+For example:
+
+A GET request to /api/users/123 will be handled by the getUser() method.
+A GET request to /api/users/456/orders will be handled by the getUserOrders() method.
+This is just a simple example to demonstrate how you can use Ant-style path patterns with Spring MVC. Depending on your application's requirements, you can use more complex patterns and matchers to handle various types of requests.
